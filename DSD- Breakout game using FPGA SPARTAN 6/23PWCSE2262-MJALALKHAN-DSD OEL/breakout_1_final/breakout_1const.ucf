@@ -1,0 +1,39 @@
+#**************************************************************************************************************************************************#
+#                                            UCF for top (Breakout) - Mimas V2                                                                     #
+#   Matches top.v ports: clk, rst, btn_left, btn_right, hsync, vsync, red[2:0], green[2:0], blue[1:0]                                              #
+#   Pin locations taken from the official Mimas V2 constraints file.                                                                               #
+#**************************************************************************************************************************************************#
+
+CONFIG VCCAUX = "3.3" ;
+
+#############################################################
+# Clock - 100 MHz onboard oscillator
+#############################################################
+NET "clk"        LOC = V10  | IOSTANDARD = LVCMOS33 | PERIOD = 100MHz ;
+
+#############################################################
+# Push buttons / switches
+# Board only exposes a 6-bit Switch[5:0] array, all active-LOW
+# (pulled up). We use three of them for reset / paddle control.
+# top.v inverts these internally to active-HIGH, so leave as-is.
+#############################################################
+NET "rst"        LOC = M18  | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST | PULLUP ; # Switch[5] / SW1
+NET "btn_left"   LOC = K17  | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST | PULLUP ; # Switch[1] / SW5
+NET "btn_right"  LOC = K18  | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST | PULLUP ; # Switch[0] / SW6
+
+#############################################################
+# VGA
+#############################################################
+NET "hsync"      LOC = B12  | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+NET "vsync"      LOC = A12  | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+
+NET "red[2]"     LOC = C9   | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+NET "red[1]"     LOC = B9   | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+NET "red[0]"     LOC = A9   | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+
+NET "green[2]"   LOC = C11  | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+NET "green[1]"   LOC = A10  | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+NET "green[0]"   LOC = C10  | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+
+NET "blue[1]"    LOC = A11  | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+NET "blue[0]"    LOC = B11  | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;

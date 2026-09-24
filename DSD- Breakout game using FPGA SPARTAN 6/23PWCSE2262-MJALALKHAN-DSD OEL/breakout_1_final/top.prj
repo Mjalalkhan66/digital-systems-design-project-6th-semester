@@ -1,0 +1,4 @@
+verilog work "top.v"
+verilog work "vga_sync.v"
+verilog work "game_core.v"
+verilog work "debounce_sync.v"

@@ -1,0 +1,675 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Reading design: top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "top.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "top"
+Output Format                      : NGC
+Target Device                      : xc6slx9-2-csg324
+
+---- Source Options
+Top Module Name                    : top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "/home/ise/Documents/Xilinx/breakout_1/top.v" into library work
+Parsing module <top>.
+Parsing module <debounce_sync>.
+Parsing module <vga_sync>.
+Parsing module <game_core>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <top>.
+
+Elaborating module <debounce_sync>.
+
+Elaborating module <vga_sync>.
+
+Elaborating module <game_core>.
+WARNING:HDLCompiler:413 - "/home/ise/Documents/Xilinx/breakout_1/top.v" Line 293: Result of 32-bit expression is truncated to fit in 12-bit target.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <top>.
+    Related source file is "/home/ise/Documents/Xilinx/breakout_1/top.v".
+    Found 2-bit register for signal <pix_clk_div>.
+    Found 2-bit adder for signal <pix_clk_div[1]_GND_1_o_add_1_OUT> created at line 29.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 D-type flip-flop(s).
+Unit <top> synthesized.
+
+Synthesizing Unit <debounce_sync>.
+    Related source file is "/home/ise/Documents/Xilinx/breakout_1/top.v".
+    Found 1-bit register for signal <out>.
+    Found 1-bit register for signal <ff1>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <debounce_sync> synthesized.
+
+Synthesizing Unit <vga_sync>.
+    Related source file is "/home/ise/Documents/Xilinx/breakout_1/top.v".
+    Found 10-bit register for signal <vcount>.
+    Found 1-bit register for signal <hsync>.
+    Found 1-bit register for signal <vsync>.
+    Found 1-bit register for signal <active_video>.
+    Found 10-bit register for signal <px>.
+    Found 10-bit register for signal <py>.
+    Found 1-bit register for signal <frame_tick>.
+    Found 10-bit register for signal <hcount>.
+    Found 10-bit adder for signal <vcount[9]_GND_3_o_add_5_OUT> created at line 142.
+    Found 10-bit adder for signal <hcount[9]_GND_3_o_add_7_OUT> created at line 144.
+    Found 10-bit comparator lessequal for signal <n0008> created at line 147
+    Found 10-bit comparator greater for signal <hcount[9]_PWR_3_o_LessThan_12_o> created at line 147
+    Found 10-bit comparator lessequal for signal <n0013> created at line 152
+    Found 10-bit comparator greater for signal <vcount[9]_GND_3_o_LessThan_14_o> created at line 152
+    Found 10-bit comparator greater for signal <hcount[9]_PWR_3_o_LessThan_15_o> created at line 159
+    Found 10-bit comparator greater for signal <vcount[9]_GND_3_o_LessThan_16_o> created at line 159
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  44 D-type flip-flop(s).
+	inferred   6 Comparator(s).
+Unit <vga_sync> synthesized.
+
+Synthesizing Unit <game_core>.
+    Related source file is "/home/ise/Documents/Xilinx/breakout_1/top.v".
+    Found 10-bit register for signal <ball_x>.
+    Found 10-bit register for signal <ball_y>.
+    Found 10-bit register for signal <ball_dx>.
+    Found 10-bit register for signal <ball_dy>.
+    Found 50-bit register for signal <n0731[49:0]>.
+    Found 10-bit register for signal <paddle_x>.
+    Found 10-bit subtractor for signal <new_dx> created at line 250.
+    Found 10-bit subtractor for signal <new_dy> created at line 256.
+    Found 9-bit subtractor for signal <GND_4_o_GND_4_o_sub_60_OUT> created at line 293.
+    Found 10-bit subtractor for signal <paddle_x[9]_GND_4_o_sub_76_OUT> created at line 322.
+    Found 12-bit adder for signal <GND_4_o_ball_dx[9]_add_0_OUT> created at line 235.
+    Found 12-bit adder for signal <GND_4_o_ball_dy[9]_add_1_OUT> created at line 236.
+    Found 12-bit adder for signal <GND_4_o_GND_4_o_add_18_OUT> created at line 263.
+    Found 12-bit adder for signal <GND_4_o_GND_4_o_add_24_OUT> created at line 269.
+    Found 8-bit adder for signal <n1035[7:0]> created at line 296.
+    Found 9-bit adder for signal <n1037[8:0]> created at line 296.
+    Found 10-bit adder for signal <paddle_x[9]_GND_4_o_add_78_OUT> created at line 325.
+    Found 11-bit adder for signal <n1041[10:0]> created at line 377.
+    Found 10-bit adder for signal <ball_x[9]_GND_4_o_add_517_OUT> created at line 379.
+    Found 10-bit adder for signal <ball_y[9]_GND_4_o_add_520_OUT> created at line 379.
+    Found 1-bit 5-to-1 multiplexer for signal <PWR_4_o_X_4_o_Mux_45_o> created at line 284.
+    Found 1-bit 5-to-1 multiplexer for signal <PWR_4_o_X_4_o_Mux_46_o> created at line 284.
+    Found 1-bit 5-to-1 multiplexer for signal <PWR_4_o_X_4_o_Mux_47_o> created at line 284.
+    Found 1-bit 5-to-1 multiplexer for signal <PWR_4_o_X_4_o_Mux_48_o> created at line 284.
+    Found 1-bit 5-to-1 multiplexer for signal <PWR_4_o_X_4_o_Mux_49_o> created at line 284.
+    Found 1-bit 5-to-1 multiplexer for signal <PWR_4_o_X_4_o_Mux_50_o> created at line 284.
+    Found 1-bit 5-to-1 multiplexer for signal <PWR_4_o_X_4_o_Mux_51_o> created at line 284.
+    Found 1-bit 5-to-1 multiplexer for signal <PWR_4_o_X_4_o_Mux_52_o> created at line 284.
+    Found 1-bit 5-to-1 multiplexer for signal <PWR_4_o_X_4_o_Mux_53_o> created at line 284.
+    Found 1-bit 5-to-1 multiplexer for signal <PWR_4_o_X_4_o_Mux_54_o> created at line 284.
+    Found 1-bit 10-to-1 multiplexer for signal <ball_x[9]_X_4_o_Mux_55_o> created at line 284.
+    Found 32-bit comparator greater for signal <GND_4_o_GND_4_o_LessThan_3_o> created at line 245
+    Found 12-bit comparator greater for signal <GND_4_o_GND_4_o_LessThan_5_o> created at line 248
+    Found 32-bit comparator greater for signal <GND_4_o_GND_4_o_LessThan_11_o> created at line 254
+    Found 12-bit comparator lessequal for signal <n0013> created at line 261
+    Found 12-bit comparator lessequal for signal <n0016> created at line 262
+    Found 12-bit comparator lessequal for signal <n0020> created at line 263
+    Found 12-bit comparator greater for signal <GND_4_o_GND_4_o_LessThan_22_o> created at line 264
+    Found 32-bit comparator greater for signal <ball_dy[9]_GND_4_o_LessThan_24_o> created at line 269
+    Found 12-bit comparator lessequal for signal <n0027> created at line 269
+    Found 10-bit comparator lessequal for signal <n0033> created at line 275
+    Found 10-bit comparator greater for signal <ball_y[9]_GND_4_o_LessThan_30_o> created at line 275
+    Found 10-bit comparator greater for signal <ball_y[9]_GND_4_o_LessThan_32_o> created at line 276
+    Found 10-bit comparator greater for signal <ball_y[9]_GND_4_o_LessThan_34_o> created at line 277
+    Found 10-bit comparator greater for signal <ball_y[9]_GND_4_o_LessThan_36_o> created at line 278
+    Found 10-bit comparator greater for signal <ball_y[9]_GND_4_o_LessThan_38_o> created at line 279
+    Found 4-bit comparator greater for signal <ball_x[9]_PWR_4_o_LessThan_45_o> created at line 284
+    Found 10-bit comparator lessequal for signal <GND_4_o_paddle_x[9]_LessThan_75_o> created at line 322
+    Found 10-bit comparator greater for signal <paddle_x[9]_PWR_4_o_LessThan_78_o> created at line 325
+    Found 10-bit comparator greater for signal <px[9]_GND_4_o_LessThan_117_o> created at line 361
+    Found 10-bit comparator lessequal for signal <n0227> created at line 362
+    Found 10-bit comparator greater for signal <py[9]_GND_4_o_LessThan_119_o> created at line 362
+    Found 10-bit comparator lessequal for signal <n0235> created at line 361
+    Found 10-bit comparator greater for signal <px[9]_GND_4_o_LessThan_123_o> created at line 361
+    Found 10-bit comparator lessequal for signal <n0245> created at line 361
+    Found 10-bit comparator greater for signal <px[9]_GND_4_o_LessThan_129_o> created at line 361
+    Found 10-bit comparator lessequal for signal <n0255> created at line 361
+    Found 10-bit comparator greater for signal <px[9]_GND_4_o_LessThan_135_o> created at line 361
+    Found 10-bit comparator lessequal for signal <n0265> created at line 361
+    Found 10-bit comparator greater for signal <px[9]_GND_4_o_LessThan_141_o> created at line 361
+    Found 10-bit comparator lessequal for signal <n0275> created at line 361
+    Found 10-bit comparator greater for signal <px[9]_GND_4_o_LessThan_147_o> created at line 361
+    Found 10-bit comparator lessequal for signal <n0285> created at line 361
+    Found 10-bit comparator greater for signal <px[9]_GND_4_o_LessThan_153_o> created at line 361
+    Found 10-bit comparator lessequal for signal <n0295> created at line 361
+    Found 10-bit comparator greater for signal <px[9]_GND_4_o_LessThan_159_o> created at line 361
+    Found 10-bit comparator lessequal for signal <n0305> created at line 361
+    Found 10-bit comparator greater for signal <px[9]_PWR_4_o_LessThan_165_o> created at line 361
+    Found 10-bit comparator lessequal for signal <n0315> created at line 361
+    Found 10-bit comparator greater for signal <px[9]_PWR_4_o_LessThan_171_o> created at line 361
+    Found 10-bit comparator lessequal for signal <n0325> created at line 362
+    Found 10-bit comparator greater for signal <py[9]_GND_4_o_LessThan_178_o> created at line 362
+    Found 10-bit comparator lessequal for signal <n0408> created at line 362
+    Found 10-bit comparator greater for signal <py[9]_GND_4_o_LessThan_257_o> created at line 362
+    Found 10-bit comparator lessequal for signal <n0491> created at line 362
+    Found 10-bit comparator greater for signal <py[9]_GND_4_o_LessThan_336_o> created at line 362
+    Found 10-bit comparator lessequal for signal <n0574> created at line 362
+    Found 10-bit comparator greater for signal <py[9]_GND_4_o_LessThan_415_o> created at line 362
+    Found 10-bit comparator lessequal for signal <n0678> created at line 377
+    Found 10-bit comparator greater for signal <px[9]_paddle_x[9]_LessThan_514_o> created at line 377
+    Found 10-bit comparator lessequal for signal <n0683> created at line 377
+    Found 10-bit comparator greater for signal <py[9]_GND_4_o_LessThan_516_o> created at line 377
+    Found 10-bit comparator lessequal for signal <n0688> created at line 379
+    Found 10-bit comparator greater for signal <px[9]_ball_x[9]_LessThan_519_o> created at line 379
+    Found 10-bit comparator lessequal for signal <n0693> created at line 379
+    Found 10-bit comparator greater for signal <py[9]_ball_y[9]_LessThan_522_o> created at line 379
+    Found 10-bit comparator greater for signal <px[9]_GND_4_o_LessThan_523_o> created at line 381
+    Found 10-bit comparator lessequal for signal <n0700> created at line 381
+    Found 10-bit comparator greater for signal <py[9]_GND_4_o_LessThan_525_o> created at line 382
+    Found 10-bit comparator lessequal for signal <n0705> created at line 382
+    Summary:
+	inferred  13 Adder/Subtractor(s).
+	inferred 100 D-type flip-flop(s).
+	inferred  59 Comparator(s).
+	inferred 385 Multiplexer(s).
+Unit <game_core> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 16
+ 10-bit adder                                          : 4
+ 10-bit addsub                                         : 1
+ 10-bit subtractor                                     : 2
+ 11-bit adder                                          : 1
+ 12-bit adder                                          : 4
+ 2-bit adder                                           : 1
+ 8-bit adder                                           : 1
+ 9-bit adder                                           : 1
+ 9-bit subtractor                                      : 1
+# Registers                                            : 21
+ 1-bit register                                        : 10
+ 10-bit register                                       : 9
+ 2-bit register                                        : 1
+ 50-bit register                                       : 1
+# Comparators                                          : 65
+ 10-bit comparator greater                             : 31
+ 10-bit comparator lessequal                           : 24
+ 12-bit comparator greater                             : 2
+ 12-bit comparator lessequal                           : 4
+ 32-bit comparator greater                             : 3
+ 4-bit comparator greater                              : 1
+# Multiplexers                                         : 385
+ 1-bit 10-to-1 multiplexer                             : 1
+ 1-bit 2-to-1 multiplexer                              : 151
+ 1-bit 5-to-1 multiplexer                              : 10
+ 10-bit 2-to-1 multiplexer                             : 8
+ 12-bit 2-to-1 multiplexer                             : 7
+ 2-bit 2-to-1 multiplexer                              : 20
+ 3-bit 2-to-1 multiplexer                              : 180
+ 4-bit 2-to-1 multiplexer                              : 5
+ 8-bit 2-to-1 multiplexer                              : 3
+
+=========================================================================
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <top>.
+The following registers are absorbed into counter <pix_clk_div>: 1 register on signal <pix_clk_div>.
+Unit <top> synthesized (advanced).
+
+Synthesizing (advanced) Unit <vga_sync>.
+The following registers are absorbed into counter <hcount>: 1 register on signal <hcount>.
+The following registers are absorbed into counter <vcount>: 1 register on signal <vcount>.
+Unit <vga_sync> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 13
+ 10-bit adder                                          : 2
+ 10-bit addsub                                         : 1
+ 10-bit subtractor                                     : 2
+ 11-bit adder                                          : 1
+ 12-bit adder                                          : 4
+ 8-bit adder                                           : 1
+ 9-bit adder                                           : 1
+ 9-bit subtractor                                      : 1
+# Counters                                             : 3
+ 10-bit up counter                                     : 2
+ 2-bit up counter                                      : 1
+# Registers                                            : 130
+ Flip-Flops                                            : 130
+# Comparators                                          : 65
+ 10-bit comparator greater                             : 31
+ 10-bit comparator lessequal                           : 24
+ 12-bit comparator greater                             : 2
+ 12-bit comparator lessequal                           : 4
+ 32-bit comparator greater                             : 3
+ 4-bit comparator greater                              : 1
+# Multiplexers                                         : 385
+ 1-bit 10-to-1 multiplexer                             : 1
+ 1-bit 2-to-1 multiplexer                              : 151
+ 1-bit 5-to-1 multiplexer                              : 10
+ 10-bit 2-to-1 multiplexer                             : 8
+ 12-bit 2-to-1 multiplexer                             : 7
+ 2-bit 2-to-1 multiplexer                              : 20
+ 3-bit 2-to-1 multiplexer                              : 180
+ 4-bit 2-to-1 multiplexer                              : 5
+ 8-bit 2-to-1 multiplexer                              : 3
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1293 - FF/Latch <ball_dx_0> has a constant value of 0 in block <game_core>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <ball_dy_0> has a constant value of 0 in block <game_core>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ball_dy_1> has a constant value of 1 in block <game_core>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ball_dx_1> has a constant value of 1 in block <game_core>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <top> ...
+
+Optimizing unit <vga_sync> ...
+
+Optimizing unit <game_core> ...
+WARNING:Xst:1293 - FF/Latch <paddle_x_0> has a constant value of 0 in block <game_core>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <paddle_x_1> has a constant value of 0 in block <game_core>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <game/ball_y_9> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <game/ball_y_0> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <game/ball_x_0> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <game/ball_dx_9> in Unit <top> is equivalent to the following 7 FFs/Latches, which will be removed : <game/ball_dx_8> <game/ball_dx_7> <game/ball_dx_6> <game/ball_dx_5> <game/ball_dx_4> <game/ball_dx_3> <game/ball_dx_2> 
+INFO:Xst:2261 - The FF/Latch <game/ball_dy_9> in Unit <top> is equivalent to the following 7 FFs/Latches, which will be removed : <game/ball_dy_8> <game/ball_dy_7> <game/ball_dy_6> <game/ball_dy_5> <game/ball_dy_4> <game/ball_dy_3> <game/ball_dy_2> 
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 9.
+FlipFlop game/ball_dy_9 has been replicated 2 time(s)
+FlipFlop game/ball_x_6 has been replicated 1 time(s)
+FlipFlop game/ball_x_7 has been replicated 1 time(s)
+FlipFlop game/ball_x_8 has been replicated 1 time(s)
+FlipFlop game/ball_y_3 has been replicated 1 time(s)
+FlipFlop game/ball_y_4 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+Processing Unit <top> :
+	Found 2-bit shift register for signal <sync_right/out>.
+	Found 2-bit shift register for signal <sync_left/out>.
+	Found 2-bit shift register for signal <sync_reset/out>.
+Unit <top> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 130
+ Flip-Flops                                            : 130
+# Shift Registers                                      : 3
+ 2-bit shift register                                  : 3
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : top.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 565
+#      GND                         : 1
+#      INV                         : 11
+#      LUT1                        : 23
+#      LUT2                        : 39
+#      LUT3                        : 34
+#      LUT4                        : 90
+#      LUT5                        : 50
+#      LUT6                        : 195
+#      MUXCY                       : 74
+#      MUXF7                       : 5
+#      VCC                         : 1
+#      XORCY                       : 42
+# FlipFlops/Latches                : 133
+#      FD                          : 4
+#      FDE                         : 3
+#      FDR                         : 33
+#      FDRE                        : 26
+#      FDS                         : 2
+#      FDSE                        : 65
+# Shift Registers                  : 3
+#      SRLC16E                     : 3
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 13
+#      IBUF                        : 3
+#      OBUF                        : 10
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9csg324-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             133  out of  11440     1%  
+ Number of Slice LUTs:                  445  out of   5720     7%  
+    Number used as Logic:               442  out of   5720     7%  
+    Number used as Memory:                3  out of   1440     0%  
+       Number used as SRL:                3
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    463
+   Number with an unused Flip Flop:     330  out of    463    71%  
+   Number with an unused LUT:            18  out of    463     3%  
+   Number of fully used LUT-FF pairs:   115  out of    463    24%  
+   Number of unique control sets:        12
+
+IO Utilization: 
+ Number of IOs:                          14
+ Number of bonded IOBs:                  14  out of    200     7%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 2     |
+pix_clk_div_1                      | BUFG                   | 134   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 10.380ns (Maximum Frequency: 96.340MHz)
+   Minimum input arrival time before clock: 2.945ns
+   Maximum output required time after clock: 15.785ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 2.260ns (frequency: 442.478MHz)
+  Total number of paths / destination ports: 3 / 2
+-------------------------------------------------------------------------
+Delay:               2.260ns (Levels of Logic = 1)
+  Source:            pix_clk_div_0 (FF)
+  Destination:       pix_clk_div_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: pix_clk_div_0 to pix_clk_div_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.525   0.725  pix_clk_div_0 (pix_clk_div_0)
+     INV:I->O              1   0.255   0.681  Mcount_pix_clk_div_xor<0>11_INV_0 (Result<0>)
+     FD:D                      0.074          pix_clk_div_0
+    ----------------------------------------
+    Total                      2.260ns (0.854ns logic, 1.406ns route)
+                                       (37.8% logic, 62.2% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'pix_clk_div_1'
+  Clock period: 10.380ns (frequency: 96.340MHz)
+  Total number of paths / destination ports: 850503 / 348
+-------------------------------------------------------------------------
+Delay:               10.380ns (Levels of Logic = 16)
+  Source:            game/ball_dx_9 (FF)
+  Destination:       game/bricks_4_48 (FF)
+  Source Clock:      pix_clk_div_1 rising
+  Destination Clock: pix_clk_div_1 rising
+
+  Data Path: game/ball_dx_9 to game/bricks_4_48
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q             13   0.525   1.098  game/ball_dx_9 (game/ball_dx_9)
+     LUT2:I1->O            1   0.254   0.000  game/Madd_GND_4_o_ball_dx[9]_add_0_OUT_lut<2> (game/Madd_GND_4_o_ball_dx[9]_add_0_OUT_lut<2>)
+     MUXCY:S->O            1   0.215   0.000  game/Madd_GND_4_o_ball_dx[9]_add_0_OUT_cy<2> (game/Madd_GND_4_o_ball_dx[9]_add_0_OUT_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  game/Madd_GND_4_o_ball_dx[9]_add_0_OUT_cy<3> (game/Madd_GND_4_o_ball_dx[9]_add_0_OUT_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  game/Madd_GND_4_o_ball_dx[9]_add_0_OUT_cy<4> (game/Madd_GND_4_o_ball_dx[9]_add_0_OUT_cy<4>)
+     MUXCY:CI->O           1   0.023   0.000  game/Madd_GND_4_o_ball_dx[9]_add_0_OUT_cy<5> (game/Madd_GND_4_o_ball_dx[9]_add_0_OUT_cy<5>)
+     MUXCY:CI->O           1   0.023   0.000  game/Madd_GND_4_o_ball_dx[9]_add_0_OUT_cy<6> (game/Madd_GND_4_o_ball_dx[9]_add_0_OUT_cy<6>)
+     XORCY:CI->O          21   0.206   1.310  game/Madd_GND_4_o_ball_dx[9]_add_0_OUT_xor<7> (game/GND_4_o_ball_dx[9]_add_0_OUT<7>)
+     LUT5:I4->O            4   0.254   0.804  game/Mmux_tmp_x51_SW0 (N139)
+     LUT6:I5->O            4   0.254   1.032  game/Mmux_tmp_x51 (game/tmp_x<2>)
+     LUT4:I1->O            1   0.235   0.000  game/Mcompar_GND_4_o_GND_4_o_LessThan_22_o_lut<1> (game/Mcompar_GND_4_o_GND_4_o_LessThan_22_o_lut<1>)
+     MUXCY:S->O            1   0.215   0.000  game/Mcompar_GND_4_o_GND_4_o_LessThan_22_o_cy<1> (game/Mcompar_GND_4_o_GND_4_o_LessThan_22_o_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  game/Mcompar_GND_4_o_GND_4_o_LessThan_22_o_cy<2> (game/Mcompar_GND_4_o_GND_4_o_LessThan_22_o_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  game/Mcompar_GND_4_o_GND_4_o_LessThan_22_o_cy<3> (game/Mcompar_GND_4_o_GND_4_o_LessThan_22_o_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  game/Mcompar_GND_4_o_GND_4_o_LessThan_22_o_cy<4> (game/Mcompar_GND_4_o_GND_4_o_LessThan_22_o_cy<4>)
+     MUXCY:CI->O          22   0.235   1.442  game/Mcompar_GND_4_o_GND_4_o_LessThan_22_o_cy<5> (game/Mcompar_GND_4_o_GND_4_o_LessThan_22_o_cy<5>)
+     LUT6:I4->O           36   0.250   1.586  game/_n1122_inv1 (game/_n1122_inv)
+     FDSE:CE                   0.302          game/bricks_4_2
+    ----------------------------------------
+    Total                     10.380ns (3.108ns logic, 7.272ns route)
+                                       (29.9% logic, 70.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'pix_clk_div_1'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              2.945ns (Levels of Logic = 2)
+  Source:            rst (PAD)
+  Destination:       sync_reset/Mshreg_out (FF)
+  Destination Clock: pix_clk_div_1 rising
+
+  Data Path: rst to sync_reset/Mshreg_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.328   0.681  rst_IBUF (rst_IBUF)
+     INV:I->O              1   0.255   0.681  reset_ah1_INV_0 (reset_ah)
+     SRLC16E:D                -0.060          sync_reset/Mshreg_out
+    ----------------------------------------
+    Total                      2.945ns (1.583ns logic, 1.362ns route)
+                                       (53.8% logic, 46.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'pix_clk_div_1'
+  Total number of paths / destination ports: 6909 / 10
+-------------------------------------------------------------------------
+Offset:              15.785ns (Levels of Logic = 10)
+  Source:            vg/px_3 (FF)
+  Destination:       green<2> (PAD)
+  Source Clock:      pix_clk_div_1 rising
+
+  Data Path: vg/px_3 to green<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q             11   0.525   1.469  vg/px_3 (vg/px_3)
+     LUT5:I0->O            8   0.254   0.944  game/n0731[49:0]<33>111 (game/n0731[49:0]<33>11)
+     LUT3:I2->O            9   0.254   0.976  game/n0731[49:0]<10>1111 (game/n0731[49:0]<10>111)
+     LUT6:I5->O            1   0.254   0.958  game/n0731[49:0]<10>1122 (game/n0731[49:0]<10>1122)
+     LUT4:I0->O            2   0.254   0.726  game/n0731[49:0]<10>1123 (game/n0731[49:0]<10>112)
+     LUT6:I5->O            2   0.254   1.002  game/Mmux_rgb_out522 (game/Mmux_rgb_out522)
+     LUT6:I2->O            2   0.254   1.156  game/n0731[49:0]<8>2 (game/n0731[49:0]<8>2)
+     LUT5:I0->O            4   0.254   1.259  game/n0731[49:0]<1>1 (game/n0731[49:0]<1>_mmx_out)
+     LUT6:I0->O            1   0.254   0.910  game/Mmux_rgb_out54 (game/Mmux_rgb_out54)
+     LUT3:I0->O            1   0.235   0.681  game/Mmux_rgb_out55 (green_2_OBUF)
+     OBUF:I->O                 2.912          green_2_OBUF (green<2>)
+    ----------------------------------------
+    Total                     15.785ns (5.704ns logic, 10.081ns route)
+                                       (36.1% logic, 63.9% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    2.260|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock pix_clk_div_1
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+pix_clk_div_1  |   10.380|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 6.91 secs
+ 
+--> 
+
+
+Total memory usage is 487224 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   10 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
+
